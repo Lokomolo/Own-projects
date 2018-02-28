@@ -8,7 +8,7 @@ using System.Drawing.Text;
 
 namespace klawiatura
 {
-    class native
+    class MistrzKlawiatury
     {
 
         static void Main(string[] args)

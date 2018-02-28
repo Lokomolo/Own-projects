@@ -1,0 +1,11 @@
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\bin\Debug\tictactoe.exe.config
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\bin\Debug\tictactoe.exe
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\bin\Debug\tictactoe.pdb
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.csprojResolveAssemblyReference.cache
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.Form1.resources
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.Properties.Resources.resources
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.csproj.GenerateResource.Cache
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.exe
+c:\users\marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.pdb
+C:\Users\Marcin\documents\visual studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.Form2.resources
+C:\Users\Marcin\Documents\Visual Studio 2017\Projects\tictactoe\tictactoe\obj\Debug\tictactoe.csproj.CoreCompileInputs.cache

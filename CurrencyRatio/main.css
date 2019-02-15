@@ -1,26 +1,72 @@
 body {
   text-align: center;
-  background: #ebf4fb;
-  min-height: 95vh;
+  background: rgb(250, 250, 250);
   margin: 0;
   padding: 0;
 /*   border-bottom: 5vh solid #3694d7; */
   font-family: "Myriad Pro", "sans-serif","Arial";
   font-size: 24px; }
+h1, h3 {
+  color: #444;
+}
+.flex-wrapper {
+  display: flex;
+  height: 10vh;
+  width: 70vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+  justify-content: space-evenly;
+
+}
+.output {
+  padding-top: .3em;
+}
+#output, #amount {
+  position: relative;
+  z-index: -99 !important;
+  font-size:28px;
+  box-sizing: border-box;
+  min-width: 12em;
+
+  display: inline-block;
+  margin-right: 1em;
+  min-height: 2em;
+  max-height: 2em;
+/*   overflow: auto; */
+  top: .5em;
+  cursor: pointer;
+  text-align: left;
+/*   white-space: nowrap; */
+  color: #444;
+  outline: none;
+  border: .06em solid transparent;
+  border-radius: 1em;
+  background-color: #cde4f5;
+  border-color: solid 4px black;
+  top: 0.8em;
+  padding-left: 0.8em;
+/*   padding-right: 3em; */
+  position: relative;
+  
+/*   border: 0.3em solid #3694d7;
+ */
+}
 
 .dropdown-el {
 /*   margin-top: 20vh; */
+
   min-width: 12em;
   position: relative;
   display: inline-block;
   margin-right: 1em;
   min-height: 2em;
   max-height: 2em;
-  overflow: hidden;
+  overflow: auto;
   top: .5em;
   cursor: pointer;
   text-align: left;
-  white-space: nowrap;
+/*   white-space: nowrap; */
   color: #444;
   outline: none;
   border: .06em solid transparent;
@@ -54,11 +100,17 @@ body {
     content: "";
     position: absolute;
     right: 0.8em;
-    top: 0.9em;
+    top: 0.8em;
     border: 0.3em solid #3694d7;
     border-color: #3694d7 transparent transparent transparent;
-    transition: .4s all ease-in-out; }
+    transition: .4s all ease-in-out; 
+    transform: rotate(90deg);
+  }
   .dropdown-el.expanded {
+    z-index:2;
+    position: absolute;
+    top: 0;
+    left: 0;
     border: 0.06em solid #3694d7;
     background: #fff;
     border-radius: .25em;
@@ -73,5 +125,11 @@ body {
     .dropdown-el.expanded input:checked + label {
       color: #3694d7; }
     .dropdown-el.expanded::after {
-      transform: rotate(-180deg);
-      top: .55em; }
+      transform: rotate(0deg);
+  }
+.el {
+  
+  position: relative;
+  height: 48px;
+  width: 288px; /* do poprawienia na responsive */
+}

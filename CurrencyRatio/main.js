@@ -1,51 +1,86 @@
-/* var request = new XMLHttpRequest();
-
-request.open('GET','http://data.fixer.io/api/latest?access_key=561cc46a6be22601b0ec965c59e69cbd&base=EUR', true);
-
-var data = JSON.parse(this.response);
-console.log(data); */
-/* GET http://data.fixer.io/api/latest?access_key=561cc46a6be22601b0ec965c59e69cbd&base=EUR */
-var currenciesRateArr;
-var currencies;
-var rates = [];
 var accessKey = '561cc46a6be22601b0ec965c59e69cbd';
+var fromDropdown = document.getElementById('dropdown-from');
+var toDropdown = document.getElementById('dropdown-to');
+var rates;
+var amount;
+var from;
+var to;
 
-/*  fetch(`http://data.fixer.io/api/latest?access_key=${accessKey}&base=EUR`, {method:'get'}).then(function(response) { 
-	// Convert to JSON
+function fillDropdownLists(currencies) {
+	for (currency of currencies) {
+		var radio = document.createElement("Input");
+		radio.type = 'radio';
+		radio.id = currency + '2';
+		var label = document.createElement("Label");
+		label.innerHTML = currency;
+		toDropdown.appendChild(radio);
+		toDropdown.appendChild(label);
+	}
+	for (currency of currencies) {
+		var radio = document.createElement("Input");
+		radio.type = 'radio';
+		radio.id = currency;
+		var label = document.createElement("Label");
+		label.innerHTML = currency;
+		fromDropdown.appendChild(radio);
+		fromDropdown.appendChild(label);
+	}
+}
 
-	return response.json();
-}).then(function(j) {
-	currenciesRateArr = Object.entries(j.rates);
-	currencies = j;
-	console.log(currencies);
-}); */
-function convertCurrency(from, to, amount){
-	result = 0;
-	fetch(`http://data.fixer.io/api/convert?access_key=${accessKey}&from=${from}&to=${to}&amount=${amount}`, {method:'get'}).then(function(response){
-	return response.json();
-	}).then(function(k){
-		console.log(k);
-		result = Object.entries(k.succes);
-	});
-	return result;
+function getCurrencyRates() {
+	fetch(`http://data.fixer.io/api/latest?access_key=${accessKey}&base=EUR`, {
+		method: 'get'
+	}).then(function (response) {
+		return response.json();
+	}).then(function (j) {
+		document.getElementById("time").innerHTML += j.date;
+		rates = j.rates;
+		fillDropdownLists(Object.keys(rates));
+	})
 }
-console.log(convertCurrency('EUR', 'PLN', 25));
-document.getElementsByTagName('main')[0].style.display = 'none';
-console.log(document.getElementsByTagName('main')[0].style.display);
-setTimeout(waitingForApi, 11);
-function waitingForApi() {
-	console.log('waiting');
-	console.log(currenciesRateArr);
-	document.getElementsByTagName('main')[0].style.display = 'block';
+
+function genereteOutput() {
+	var output = document.getElementById('output');
+	output.value = amount * to / from;
 }
-/* console.log(currencies.rates[2]); */
-var dropDownList = document.getElementById('dropdown-el');
-dropDownList.addEventListener('click', function(e) {
+var amountInput = document.getElementById('amount');
+amountInput.addEventListener('keyup', function () {
+
+	amount = amountInput.value;
+	genereteOutput();
+})
+
+getCurrencyRates();
+/* document.querySelector('#dropdown-from input:checked')
+console.log(document.querySelector('#dropdown-from input:checked')); */
+console.log(rates);
+toDropdown.addEventListener('click', function (e) {
 	console.log(e.target.innerHTML);
 	e.preventDefault();
 	e.stopPropagation();
 	this.classList.toggle('expanded');
-	document.addEventListener('click', function() {
-		dropDownList.classList.remove('expanded');
-	})
+	to = rates[e.target.innerHTML];
+	document.querySelector('#dropdown-to input:checked').checked = false;
+	document.getElementById(e.target.innerHTML + '2').checked = true;
+/* 	toDropdown.innerText = e.target.innerHTML; */
+	/* 	document.addEventListener('click', function () {
+			toDropdown.classList.remove('expanded');
+			console.log(document.getElementById('dropdown-to').innerHTML);
+		}) */
+})
+console.log(fromDropdown);
+fromDropdown.addEventListener('click', function (e) {
+	console.log(e.target.innerHTML);
+	e.preventDefault();
+	e.stopPropagation();
+	this.classList.toggle('expanded');
+	from = rates[e.target.innerHTML];
+	console.log(fromDropdown.innerText);
+	document.querySelector('#dropdown-from input:checked').checked = false;
+	console.log(document.getElementById(e.target.innerHTML));
+	document.getElementById(e.target.innerHTML).checked = true;
+/* 	fromDropdown.innerText = e.target.innerHTML; */
+	/* 	document.addEventListener('click', function () {
+			fromDropdown.classList.remove('expanded');
+		}) */
 })

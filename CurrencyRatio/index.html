@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  </head>
 
-  <body>
-    <main>
-      <h1>Kalkulator Walut</h1>
-      <h3 id='time'>Wygenerowano: </h3>
-      <div class="flex-wrapper">
-          <input type="text" id="amount" />
-          <input type="text" id="output" class="output" disabled/>
-        </div>
-      <div class="flex-wrapper">
-        <div class="el">
-          <span id="dropdown-from" class="dropdown-el">
-            <input type="radio" checked /><label>Przelicz z</label>
-          </span>
-        </div>
-        <div class="el">
-          <span id="dropdown-to" class="dropdown-el">
-            <input type="radio" checked /><label>Przelicz na</label>
-          </span>
-        </div>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+
+<body>
+  <main>
+    <h1>Kalkulator Walut</h1>
+    <h3 id='time'>Wygenerowano: </h3>
+
+    <div class="flex-wrapper">
+      <div class="el">
+        <span id="dropdown-from" class="dropdown-el">
+          <input type="radio" checked /><label id='currency-input'>Przelicz z</label>
+        </span>
       </div>
-      
-    </main>
-    <script src="main.js"></script>
-  </body>
+      <div class="el">
+        <span id="dropdown-to" class="dropdown-el">
+          <input type="radio" checked /><label id='currency-output'>Przelicz na</label>
+        </span>
+      </div>
+    </div>
+    <div class="flex-wrapper">
+      <input type="text" id="amount" />
+      <input type="text" id="output" class="output" disabled />
+    </div>
+  </main>
+  <div class='select-wrapper'>
+    <select>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+  <script src="main.js"></script>
+</body>
+
 </html>

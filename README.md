@@ -1,3 +1,9 @@
 # Own-projects
+This repo contains multiple smaller projects.
+## Projects
 
-FormBuilder - download and ready to go. Support only for chrome. Sometimes getting crazy but I couldn't find more time to look for a  bug.
+CurrencyRatio - small app which takes current currency ratio from api and calculates value in different currency.
+
+formBuilder - Nested forms made with recurrency. Data is saved in local storage. Works only on local server.
+
+TicTacToe - has been made to practise windows forms
